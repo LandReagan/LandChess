@@ -8,8 +8,8 @@
 class Observable
 {
    public:
-      virtual void addObserver(Observer& obs) = 0;
-      virtual void removeObserver(Observer& obs) = 0;
+      virtual void addObserver(Observer* obs) = 0;
+      virtual void removeObserver(Observer* obs) = 0;
       virtual void notifyObservers() = 0;
 
    protected:

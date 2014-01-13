@@ -8,11 +8,15 @@ As per definition, it should inherit from Observable class in Observer pattern
 #ifndef MODEL_H_INCLUDED
 #define MODEL_H_INCLUDED
 
+#include <iostream>
+
 #include "Observable.h"
 
 class Model : public Observable
 {
    public:
+      Model();
+      ~Model();
 
    protected:
 

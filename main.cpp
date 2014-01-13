@@ -1,12 +1,24 @@
 #include <iostream>
+#include <fstream>
+
+#include "View.h"
 
 using namespace std;
 
 int main()
 {
-   // 1. Streams redirection:
+   // Stream redirection:
+   std::ofstream log ("log.txt");
+   std::ofstream err ("err.txt");
+   std::streambuf* oldlog = std::clog.rdbuf(log.rdbuf());
+   std::streambuf* olderr = std::cerr.rdbuf(err.rdbuf());
 
+   View* view = new View();
 
+   delete view;
 
-    return 0;
+   std::clog.rdbuf(oldlog);
+   std::cerr.rdbuf(olderr);
+
+   return 0;
 }
