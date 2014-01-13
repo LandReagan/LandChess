@@ -8,9 +8,13 @@ As per definition, it should inherit from Observer class in Observer pattern
 #ifndef VIEW_H_INCLUDED
 #define VIEW_H_INCLUDED
 
-class View
+#include "Observer.h"
+#include "Controller.h"
+
+class View : public Observer
 {
    public:
+      View();
 
    protected:
       Controller* ctr;

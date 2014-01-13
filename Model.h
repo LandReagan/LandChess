@@ -8,7 +8,9 @@ As per definition, it should inherit from Observable class in Observer pattern
 #ifndef MODEL_H_INCLUDED
 #define MODEL_H_INCLUDED
 
-class Model
+#include "Observable.h"
+
+class Model : public Observable
 {
    public:
 
