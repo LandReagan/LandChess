@@ -12,7 +12,7 @@ class Model
 {
    public:
 
-   private:
+   protected:
 
 };
 
