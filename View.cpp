@@ -5,6 +5,9 @@ View::View()
    std::clog << "CONSTR : View" << std::endl;
 
    ctr = new Controller();
+
+   // MVC completion by setting Observer pattern up.
+   ctr->addObs(this);
 }
 
 View::~View()
@@ -18,5 +21,6 @@ View::~View()
 void
 View::update()
 {
+   std::clog << "View::update invoquée - NON CODEE !!!" << std::endl;
    // TO BE DONE !
 }

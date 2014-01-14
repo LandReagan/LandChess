@@ -16,8 +16,12 @@ As per definition, it should inherit from Observer class in Observer pattern
 class View : public Observer
 {
    public:
+   // CONSTRUCTORS & DESTRUCTOR:
       View();
-      ~View();
+      virtual ~View();
+
+   // OBSERVER:
+      void update();
 
    protected:
       Controller* ctr;
