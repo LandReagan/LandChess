@@ -15,8 +15,14 @@ As per definition, it should inherit from Observable class in Observer pattern
 class Model : public Observable
 {
    public:
+   // CONSTRUCTORS & DESTRUCTOR
       Model();
-      ~Model();
+      virtual ~Model();
+
+   // OBSERVABLE:
+      void addObserver(Observer*);
+      void removeObserver(Observer*);
+      void notifyObservers();
 
    protected:
 

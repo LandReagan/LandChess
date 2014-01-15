@@ -14,8 +14,12 @@ This class implements Controller in the Model-View-Controller pattern
 class Controller
 {
    public:
+   // CONSTRUCTORS & DESTRUCTOR
       Controller();
-      ~Controller();
+      virtual ~Controller();
+
+   // Observer pass-through:
+   void addObs(Observer*);
 
    protected:
       Model* mod;

@@ -13,3 +13,10 @@ Controller::~Controller()
 
    delete mod;
 }
+
+// Observer pass-through:
+void
+Controller::addObs(Observer* obs)
+{
+   mod->addObserver(obs);
+}
