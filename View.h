@@ -10,6 +10,8 @@ As per definition, it should inherit from Observer class in Observer pattern
 
 #include <iostream>
 
+#include "SDL2/SDL.h"
+
 #include "Observer.h"
 #include "Controller.h"
 
