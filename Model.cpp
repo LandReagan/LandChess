@@ -19,7 +19,5 @@ Model::addObserver(Observer* obs)
 void
 Model::removeObserver(Observer* obs)
 {
-   for (size_t i = 0; i < vec_Obs.size(); ++i)
-      if (vec_Obs[i] == obs)
-         this.
+   // TO BE DONE !!!
 }
