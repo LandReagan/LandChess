@@ -28,6 +28,10 @@ class View : public Observer
    protected:
       Controller* ctr;
 
+   // SDL:
+      SDL_Window* win;
+      SDL_Renderer* ren;
+
 };
 
 #endif // VIEW_H_INCLUDED
