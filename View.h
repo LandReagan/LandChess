@@ -10,8 +10,6 @@ As per definition, it should inherit from Observer class in Observer pattern
 
 #include <iostream>
 
-#include "SDL2/SDL.h"
-
 #include "Observer.h"
 #include "Controller.h"
 
@@ -27,11 +25,6 @@ class View : public Observer
 
    protected:
       Controller* ctr;
-
-   // SDL:
-      SDL_Window* win;
-      SDL_Renderer* ren;
-
 };
 
 #endif // VIEW_H_INCLUDED

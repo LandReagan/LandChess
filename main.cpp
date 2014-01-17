@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-#include "View.h"
+#include "GUI.h"
 
 using namespace std;
 
@@ -13,9 +13,9 @@ int main()
    std::streambuf* oldlog = std::clog.rdbuf(log.rdbuf());
    std::streambuf* olderr = std::cerr.rdbuf(err.rdbuf());
 
-   View* view = new View();
+   GUI* gui = new GUI();
 
-   delete view;
+   delete gui;
 
    std::clog.rdbuf(oldlog);
    std::cerr.rdbuf(olderr);
