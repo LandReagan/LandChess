@@ -13,7 +13,9 @@ int main()
    std::streambuf* oldlog = std::clog.rdbuf(log.rdbuf());
    std::streambuf* olderr = std::cerr.rdbuf(err.rdbuf());
 
-   GUI* gui = new GUI();
+   GUI* gui = new GUI(); // sets everything up (MVC, SDL...)
+
+   gui->exec(); // Launch event loop, and the game.
 
    delete gui;
 

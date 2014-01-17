@@ -6,14 +6,21 @@
 #include "SDL2/SDL.h"
 
 #include "View.h"
+#include "Game_Manager.h"
 
 class GUI : public View
 {
    public:
       GUI();
-      ~GUI();
+      virtual ~GUI();
+
+   // EXECUTION METHOD:
+      void exec();
 
    private:
+   // Controller:
+      Game_Manager* game_manager;
+
    // SDL:
       SDL_Window* win;
       SDL_Renderer* ren;

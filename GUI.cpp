@@ -42,11 +42,29 @@ GUI::GUI()
 
 // Window test:
    SDL_Delay(2000);
+
+   game_manager = new Game_Manager();
+
+   game_manager->addObs(this);
 }
 
 GUI::~GUI()
 {
+   std::clog << "DESTR : GUI" << std::endl;
+
+   delete game_manager;
+
    SDL_DestroyWindow(win);
    SDL_DestroyRenderer(ren);
    SDL_Quit();
+}
+
+void
+GUI::exec()
+{
+   std::clog << "Exécution !" << std::endl;
+
+
+
+   std::clog << "Fin d'exécution !" << std::endl;
 }

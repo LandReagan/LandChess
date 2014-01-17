@@ -5,15 +5,15 @@ View::View()
    std::clog << "CONSTR : View" << std::endl;
 
 // X. MVC BUILT:
-   ctr = new Controller();
+   //ctr = new Controller();
 
    // MVC completion by setting Observer pattern up.
-   ctr->addObs(this);
+   //ctr->addObs(this);
 }
 
 View::~View()
 {
-   delete ctr;
+   //delete ctr;
 
    std::clog << "DESTR : View" << std::endl;
 }
