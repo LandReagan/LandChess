@@ -19,6 +19,8 @@ int main()
 
    delete gui;
 
+   std::clog << "Fin du programme !" << std::endl;
+
    std::clog.rdbuf(oldlog);
    std::cerr.rdbuf(olderr);
 

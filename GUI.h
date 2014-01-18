@@ -2,6 +2,7 @@
 #define GUI_H_INCLUDED
 
 #include <iostream>
+#include <vector>
 
 #include "SDL2/SDL.h"
 
@@ -24,6 +25,8 @@ class GUI : public View
    // SDL:
       SDL_Window* win;
       SDL_Renderer* ren;
+
+      std::vector<SDL_Texture*> vec_grille;
 
 };
 

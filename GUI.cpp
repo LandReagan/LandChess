@@ -4,7 +4,7 @@ GUI::GUI()
 {
    std::clog << "CONSTR : GUI" << std::endl;
 
-   // 1. SDL INITIALISATION:
+// 1. SDL INITIALISATION:
    if (SDL_Init(SDL_INIT_EVERYTHING) != 0)
    {
       std::cerr << "Erreur d'initialisation de la SDL ! " << SDL_GetError()
@@ -36,12 +36,15 @@ GUI::GUI()
          << SDL_GetError() << " - Sortie du programme !" << std::endl;
       exit(-1);
    }
-   SDL_SetRenderDrawColor(ren, 96, 195, 73, 255);
-   SDL_RenderClear(ren);
-   SDL_RenderPresent(ren);
 
-// Window test:
-   SDL_Delay(2000);
+   SDL_RenderClear(ren);
+
+   SDL_Surface* background_surface = SDL_CreateRGBSurface(0, 800, 600, 32, 0, 0, 0, 0);
+   SDL_FillRect(background_surface, NULL, SDL_MapRGB(background_surface->format, 215, 113, 22));
+   SDL_Texture* background_texture = SDL_CreateTextureFromSurface(ren, background_surface);
+   SDL_RenderCopy(ren, background_texture, nullptr, nullptr);
+
+   SDL_RenderPresent(ren);
 
    game_manager = new Game_Manager();
 
@@ -54,6 +57,8 @@ GUI::~GUI()
 
    delete game_manager;
 
+   for (size_t i = 0; i < vec_grille.size(); ++i)
+      SDL_DestroyTexture(vec_grille[i]);
    SDL_DestroyWindow(win);
    SDL_DestroyRenderer(ren);
    SDL_Quit();
@@ -64,7 +69,7 @@ GUI::exec()
 {
    std::clog << "Exécution !" << std::endl;
 
-
+   game_manager->event_loop();
 
    std::clog << "Fin d'exécution !" << std::endl;
 }
