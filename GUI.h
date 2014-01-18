@@ -8,6 +8,7 @@
 
 #include "View.h"
 #include "Game_Manager.h"
+#include "Graph_Struct.h"
 
 class GUI : public View
 {
@@ -26,8 +27,8 @@ class GUI : public View
       SDL_Window* win;
       SDL_Renderer* ren;
 
-      std::vector<SDL_Texture*> vec_grille;
-
+   // Graphical structure:
+      std::vector<Graph_Struct*> grille;
 };
 
 #endif // GUI_H_INCLUDED
