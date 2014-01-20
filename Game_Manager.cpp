@@ -34,6 +34,17 @@ Game_Manager::event_loop()
       SDL_WaitEvent(&event);
       if (event.type == SDL_QUIT)
          running = false;
+      else if (event.type == SDL_MOUSEBUTTONUP)
+      {
+         click_on(event.motion.x, event.motion.y);
+      }
    }
+
+}
+
+// Event local management:
+void
+Game_Manager::click_on(int x, int y)
+{
 
 }

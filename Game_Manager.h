@@ -24,6 +24,9 @@ class Game_Manager : public Controller
 
    // SDL event:
       SDL_Event* event;
+
+   // Event local management:
+      void click_on(int x, int y);
 };
 
 #endif // GAME_MANAGER_H_INCLUDED
