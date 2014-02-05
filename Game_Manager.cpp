@@ -22,29 +22,16 @@ Game_Manager::addObs(Observer* obs)
    echiquier->addObserver(obs);
 }
 
-// EVENT LOOP:
+
+// Event management:
 void
-Game_Manager::event_loop()
+Game_Manager::click_DOWN(int x, int y)
 {
-   std::clog << "Game_Manager::event_loop() lancée !" << std::endl;
-   SDL_Event event;
-   bool running = true;
-   while(running)
-   {
-      SDL_WaitEvent(&event);
-      if (event.type == SDL_QUIT)
-         running = false;
-      else if (event.type == SDL_MOUSEBUTTONUP)
-      {
-         click_on(event.motion.x, event.motion.y);
-      }
-   }
 
 }
 
-// Event local management:
 void
-Game_Manager::click_on(int x, int y)
+Game_Manager::click_UP(int x, int y)
 {
 
 }

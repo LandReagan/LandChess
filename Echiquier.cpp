@@ -4,8 +4,8 @@ Echiquier::Echiquier()
 {
    std::clog << "CONSTR : Echiquier" << std::endl;
 
-   bool white = true;
-   for (char c = 'a'; c < 'i'; ++c)
+   bool white = false;
+   for (char c = 'h'; c <= 'a'; --c)
    {
       white = !white;
       for (int j = 1; j < 9; ++j)

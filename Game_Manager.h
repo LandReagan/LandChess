@@ -12,9 +12,6 @@ class Game_Manager : public Controller
       Game_Manager();
       virtual ~Game_Manager();
 
-   // EVENT LOOP:
-      void event_loop();
-
    // OBSERVER PASSING THROUGH:
       void addObs(Observer*);
 
@@ -22,11 +19,9 @@ class Game_Manager : public Controller
    // Model:
       Echiquier* echiquier;
 
-   // SDL event:
-      SDL_Event* event;
-
    // Event local management:
-      void click_on(int x, int y);
+      void click_UP(int x, int y);
+      void click_DOWN(int x, int y);
 };
 
 #endif // GAME_MANAGER_H_INCLUDED

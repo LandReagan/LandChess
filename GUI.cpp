@@ -84,7 +84,7 @@ GUI::exec()
 {
    std::clog << "Exécution !" << std::endl;
 
-   game_manager->event_loop();
+   event_loop(); // method inherited from Event_Manager
 
    std::clog << "Fin d'exécution !" << std::endl;
 }

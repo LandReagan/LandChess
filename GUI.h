@@ -4,13 +4,14 @@
 #include <iostream>
 #include <vector>
 
+#include "Event_Manager.h"
 #include "SDL2/SDL.h"
 
 #include "View.h"
 #include "Game_Manager.h"
 #include "Graph_Struct.h"
 
-class GUI : public View
+class GUI : public View, public Event_Manager
 {
    public:
       GUI();
