@@ -11,10 +11,13 @@ class Event_Manager
       Event_Manager();
       //virtual ~Event_Manager();
 
-   // Event loop:
+   protected:
+      // Event loop:
       void event_loop();
 
    private:
+
+
    // Event processing:
       void mouse_DOWN(int x, int y);
       void mouse_UP(int x, int y);
