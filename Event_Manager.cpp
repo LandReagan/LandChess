@@ -16,9 +16,10 @@ Event_Manager::event_loop()
       SDL_WaitEvent(&event);
       if (event.type == SDL_QUIT)
          running = false;
-      else if (event.type == SDL_MOUSEBUTTONDOWN)
+      else if (event.type == SDL_MOUSEBUTTONUP)
       {
-
+         int x = event.motion.x;
+         int y = event.motion.y;
       }
    }
 }

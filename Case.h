@@ -9,7 +9,7 @@ class Case
 {
    public:
       Case(char c, int n, bool w) : col(c), lin(n), piece(nullptr), status(NORMAL), is_white(w)
-         {std::clog << "Case en " << c << n << " créée, couleur : " << w << std::endl;}
+         {/*std::clog << "Case en " << c << n << " créée, couleur : " << w << std::endl;*/}
       virtual ~Case() {delete piece;}
 
    // SETS:

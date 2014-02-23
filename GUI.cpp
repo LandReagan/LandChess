@@ -52,11 +52,13 @@ GUI::GUI()
    SDL_Surface* background_surface = SDL_CreateRGBSurface(0, screen_width, screen_height, 32, 0, 0, 0, 0);
    SDL_FillRect(background_surface, NULL, SDL_MapRGB(background_surface->format, 215, 113, 22));
 
+   /*
    for (size_t i = 0; i < grille.size(); ++i)
    {
       SDL_FillRect(background_surface, grille[i]->rect, SDL_MapRGB(background_surface->format, 0, 0, 0));
       SDL_FillRect(background_surface, grille[i]->inner_rect, SDL_MapRGB(background_surface->format, 230, 230, 230));
    }
+   */
 
    SDL_Texture* background_texture = SDL_CreateTextureFromSurface(ren, background_surface);
    SDL_RenderCopy(ren, background_texture, nullptr, nullptr);
@@ -73,6 +75,9 @@ GUI::~GUI()
    std::clog << "DESTR : GUI" << std::endl;
 
    delete game_manager;
+
+   for (size_t i = 0; i < grille.size(); ++i)
+      delete grille[i];
 
    SDL_DestroyWindow(win);
    SDL_DestroyRenderer(ren);

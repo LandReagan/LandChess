@@ -7,7 +7,8 @@ enum COLOR {WHITE, BLACK};
 class Piece
 {
    public:
-      Piece(NATURE n, COLOR c) : nature(n), color(c) {}
+      Piece(NATURE n, COLOR c) : nature(n), color(c)
+         {std::clog << "Piece cree nature:" << nature << " color:" << color << std::endl;}
 
    private:
       NATURE nature;

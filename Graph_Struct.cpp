@@ -18,4 +18,5 @@ Graph_Struct::Graph_Struct(int m_x, int m_y) : x(m_x), y(m_y)
 Graph_Struct::~Graph_Struct()
 {
    delete rect;
+   delete inner_rect;
 }

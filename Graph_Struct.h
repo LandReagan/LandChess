@@ -10,7 +10,7 @@
 
 /*
 
-Graph_Struct describe display canevas of game screen, 64 rects with x from 0
+Graph_Struct describes display canevas of game screen, 64 rects with x from 0
 to 7 and y as well. Default size is described by default constants:
 
 */

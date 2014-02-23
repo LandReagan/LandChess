@@ -5,10 +5,10 @@ Echiquier::Echiquier()
    std::clog << "CONSTR : Echiquier" << std::endl;
 
    bool white = false;
-   for (char c = 'h'; c <= 'a'; --c)
+   for (int j = 8; j >= 1; --j)
    {
       white = !white;
-      for (int j = 1; j < 9; ++j)
+      for (char c = 'a'; c <= 'h'; ++c)
       {
          Case* cas = new Case(c, j, white);
          vec_Case.push_back(cas);
