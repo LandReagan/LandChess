@@ -41,6 +41,7 @@ void
 Model::notifyObservers()
 {
    std::clog << "Model::notifyObserver() invoquée" << std::endl;
+
    for (size_t i = 0; i < vec_Obs.size(); ++i)
       vec_Obs[i]->update();
 }

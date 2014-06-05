@@ -5,11 +5,11 @@
 
 using namespace std;
 
-int main()
+int main(int argc, char **argv)
 {
    // Stream redirection:
-   std::ofstream log ("log.txt");
-   std::ofstream err ("err.txt");
+   std::ofstream log ("./LOGS/log.txt");
+   std::ofstream err ("./LOGS/err.txt");
    std::streambuf* oldlog = std::clog.rdbuf(log.rdbuf());
    std::streambuf* olderr = std::cerr.rdbuf(err.rdbuf());
 

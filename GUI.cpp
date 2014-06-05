@@ -17,7 +17,7 @@ GUI::GUI()
 // 2. WINDOW CREATION:
    win = nullptr;
    win = SDL_CreateWindow("LandChess", SDL_WINDOWPOS_CENTERED,
-      SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_SHOWN);
+      SDL_WINDOWPOS_CENTERED, screen_width, screen_height, SDL_WINDOW_SHOWN);
    if (win == nullptr)
    {
       std::cerr << "Erreur dans la création de la fenêtre : "
@@ -37,6 +37,8 @@ GUI::GUI()
       exit(-1);
    }
 
+
+
 // 4. GRILLE CREATION:
    for (int i = 0; i < 8; ++i)
    {
@@ -46,24 +48,6 @@ GUI::GUI()
          grille.push_back(gs);
       }
    }
-
-   SDL_RenderClear(ren);
-
-   SDL_Surface* background_surface = SDL_CreateRGBSurface(0, screen_width, screen_height, 32, 0, 0, 0, 0);
-   SDL_FillRect(background_surface, NULL, SDL_MapRGB(background_surface->format, 215, 113, 22));
-
-   /*
-   for (size_t i = 0; i < grille.size(); ++i)
-   {
-      SDL_FillRect(background_surface, grille[i]->rect, SDL_MapRGB(background_surface->format, 0, 0, 0));
-      SDL_FillRect(background_surface, grille[i]->inner_rect, SDL_MapRGB(background_surface->format, 230, 230, 230));
-   }
-   */
-
-   SDL_Texture* background_texture = SDL_CreateTextureFromSurface(ren, background_surface);
-   SDL_RenderCopy(ren, background_texture, nullptr, nullptr);
-
-   SDL_RenderPresent(ren);
 
    game_manager = new Game_Manager();
 
@@ -92,6 +76,50 @@ GUI::exec()
    event_loop(); // method inherited from Event_Manager
 
    std::clog << "Fin d'exécution !" << std::endl;
+}
+
+//
+void
+GUI::update()
+{
+        std::clog << "GUI::update" << std::endl;
+      // BACKGROUND SURFACE:
+    SDL_Surface* background_surface = SDL_CreateRGBSurface(0, screen_width, screen_height, 32, 0, 0, 0, 0);
+    SDL_FillRect(background_surface, NULL, SDL_MapRGB(background_surface->format, 215, 113, 22));
+
+    Snapshot* snap = game_manager->pass_snapshot();
+
+    for (size_t i = 0; i < snap->v_snap.size(); ++i)
+    {
+        std::clog << "i:" << i << " ";
+        std::string i_str = snap->v_snap[i];
+        int x(0), y(0);
+        x = i_str[0] - 'a';
+        y = '8' - i_str[1];
+        std::clog << i_str << " x=" << x << " y=" << y << std::endl;
+
+        SDL_FillRect(background_surface, grille[x + 8 * y]->rect, SDL_MapRGB(background_surface->format, 0, 0, 0));
+        if (i_str[3] == '0')
+            SDL_FillRect(background_surface, grille[x + 8 * y]->inner_rect, SDL_MapRGB(background_surface->format, 25, 25, 25));
+        else
+            SDL_FillRect(background_surface, grille[x + 8 * y]->inner_rect, SDL_MapRGB(background_surface->format, 255, 255, 255));
+    }
+
+    /*
+    for (size_t i = 0; i < grille.size(); ++i)
+   {
+      SDL_FillRect(background_surface, grille[i]->rect, SDL_MapRGB(background_surface->format, 0, 0, 0));
+      if (i % 2 == 0 && (i / 8) % 2 == 0 || i % 2 == 1 && (i / 8) % 2 == 1)
+        SDL_FillRect(background_surface, grille[i]->inner_rect, SDL_MapRGB(background_surface->format, 230, 230, 230));
+      else
+        SDL_FillRect(background_surface, grille[i]->inner_rect, SDL_MapRGB(background_surface->format, 25, 25, 25));
+   }
+   */
+
+   SDL_Texture* background_texture = SDL_CreateTextureFromSurface(ren, background_surface);
+   SDL_RenderCopy(ren, background_texture, nullptr, nullptr);
+
+   SDL_RenderPresent(ren);
 }
 
 // EVENT MANAGER CLASS IMPLEMENTATION:

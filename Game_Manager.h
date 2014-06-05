@@ -14,6 +14,7 @@ class Game_Manager : public Controller
 
    // OBSERVER PASSING THROUGH:
       void addObs(Observer*);
+      Snapshot* pass_snapshot() const {return echiquier->get_snapshot();}
 
    private:
    // Model:

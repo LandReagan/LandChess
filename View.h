@@ -21,7 +21,7 @@ class View : public Observer
       virtual ~View();
 
    // OBSERVER:
-      void update();
+
 
    protected:
       Controller* ctr;

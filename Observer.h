@@ -1,6 +1,9 @@
 #ifndef OBSERVER_H_INCLUDED
 #define OBSERVER_H_INCLUDED
 
+#include <vector>
+#include <string>
+
 class Observer
 {
    public:

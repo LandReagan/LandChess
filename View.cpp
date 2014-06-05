@@ -18,10 +18,3 @@ View::~View()
    std::clog << "DESTR : View" << std::endl;
 }
 
-// Observer method implementation
-void
-View::update()
-{
-   std::clog << "View::update invoquée - NON CODEE !!!" << std::endl;
-   // TO BE DONE !
-}
